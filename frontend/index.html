@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Medicine Reminder</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="auth-shell">
+  <div class="card" style="max-width:560px; text-align:center;">
+    <div style="font-size:2.6rem; margin-bottom:6px;">💊</div>
+    <h1>AI Medicine Reminder</h1>
+    <p>Upload a prescription, verify the details, and never miss a dose again —
+       with reminders by Telegram, SMS, phone call, or your browser.</p>
+    <div style="display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
+      <a class="btn btn-primary btn-lg" href="/register.html">Create Account</a>
+      <a class="btn btn-outline btn-lg" href="/login.html">Log In</a>
+    </div>
+    <p class="disclaimer" style="margin-top:28px; text-align:left;">
+      This application is for medication organization and reminders and does not
+      replace professional medical advice. Always verify medicine details against
+      your original prescription.
+    </p>
+  </div>
+</div>
+<script>
+  fetch("/api/me", { credentials: "same-origin" }).then(r => {
+    if (r.ok) window.location.href = "/dashboard.html";
+  });
+</script>
+</body>
+</html>

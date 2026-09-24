@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings — AI Medicine Reminder</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="page-shell">
+  <nav class="navbar" id="navbar"></nav>
+  <main>
+    <div class="container">
+      <h1>Notification Settings</h1>
+
+      <div class="card">
+        <h2>Notification Methods</h2>
+        <p>Select all the ways you'd like to be reminded. The scheduler sends every selected method for each reminder.</p>
+        <div id="channel-status" class="chip-group" style="margin-bottom:16px;"></div>
+
+        <div class="checkbox-row"><input type="checkbox" id="opt-telegram"><label for="opt-telegram">Telegram</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="opt-sms"><label for="opt-sms">SMS</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="opt-email"><label for="opt-email">Email</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="opt-call"><label for="opt-call">Automated Phone Call</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="opt-browser"><label for="opt-browser">Browser Notification</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="opt-sound"><label for="opt-sound">Sound Alarm (with Browser Notification)</label></div>
+
+        <div class="field" style="margin-top:16px;">
+          <label for="telegram-chat-id">Telegram Chat ID</label>
+          <input type="text" id="telegram-chat-id" placeholder="e.g. 123456789">
+          <p class="field-hint">Message @userinfobot on Telegram to find your chat ID. Leave blank if you don't use Telegram.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Follow-up &amp; Alerts</h2>
+        <div class="field">
+          <label for="followup-minutes">Follow-up reminder after</label>
+          <select id="followup-minutes">
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15">15 minutes</option>
+          </select>
+          <p class="field-hint">If you don't answer Taken / Not Taken, the reminder is sent again after this time, and keeps repeating until you answer.</p>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="miss-alert">
+          <label for="miss-alert">Notify emergency contact after repeated missed medicines</label>
+        </div>
+        <div class="card-row cols-2">
+          <div class="field"><label for="em-name">Emergency Contact Name</label><input type="text" id="em-name"></div>
+          <div class="field"><label for="em-phone">Emergency Contact Number</label><input type="tel" id="em-phone"></div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-lg" id="save-settings-btn">Save Settings</button>
+      <button class="btn btn-outline btn-lg" id="test-notify-btn" type="button">Send Test Notification</button>
+    </div>
+  </main>
+  <footer class="site-footer">AI Medicine Reminder — college project demo</footer>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/notifications.js"></script>
+</body>
+</html>

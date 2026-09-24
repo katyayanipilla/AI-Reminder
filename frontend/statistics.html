@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Statistics — AI Medicine Reminder</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="page-shell">
+  <nav class="navbar" id="navbar"></nav>
+  <main>
+    <div class="container">
+      <h1>Statistics</h1>
+
+      <div class="card">
+        <h2>Medication Adherence</h2>
+        <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+          <div class="stat"><div class="num" id="adherence-num" style="font-size:3.4rem;">–%</div><div class="label">Overall adherence</div></div>
+          <svg width="140" height="140" viewBox="0 0 140 140" id="adherence-ring">
+            <circle cx="70" cy="70" r="60" fill="none" stroke="#E7EEEA" stroke-width="14"></circle>
+            <circle cx="70" cy="70" r="60" fill="none" stroke="#2E8B57" stroke-width="14"
+                    stroke-linecap="round" id="ring-progress"
+                    stroke-dasharray="377" stroke-dashoffset="377"
+                    transform="rotate(-90 70 70)"></circle>
+          </svg>
+        </div>
+      </div>
+
+      <div class="card-row cols-4">
+        <div class="card stat"><div class="num" id="stat-total-meds">–</div><div class="label">Total Medicines</div></div>
+        <div class="card stat"><div class="num" id="stat-total-reminders">–</div><div class="label">Total Reminders</div></div>
+        <div class="card stat"><div class="num" id="stat-taken">–</div><div class="label">Taken</div></div>
+        <div class="card stat"><div class="num" id="stat-missed">–</div><div class="label">Missed</div></div>
+      </div>
+
+      <div class="card">
+        <h2>Breakdown</h2>
+        <div style="display:flex; gap:10px; height:28px; border-radius:8px; overflow:hidden; margin-bottom:14px;" id="bar-chart"></div>
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <span><span class="badge badge-taken">🟢 Taken</span> <b id="legend-taken">0</b></span>
+          <span><span class="badge badge-pending">🟡 Pending</span> <b id="legend-pending">0</b></span>
+          <span><span class="badge badge-missed">🔴 Missed</span> <b id="legend-missed">0</b></span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">AI Medicine Reminder — college project demo</footer>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/statistics.js"></script>
+</body>
+</html>

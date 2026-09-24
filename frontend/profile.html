@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile — AI Medicine Reminder</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="page-shell">
+  <nav class="navbar" id="navbar"></nav>
+  <main>
+    <div class="container">
+      <h1>Your Profile</h1>
+      <div class="card" id="profile-card">
+        <div class="card-row cols-2">
+          <div><div class="med-meta">Name</div><div id="p-name" style="font-size:1.2rem; font-weight:600; color:var(--pine-dark);"></div></div>
+          <div><div class="med-meta">Phone</div><div id="p-phone" style="font-size:1.2rem; font-weight:600; color:var(--pine-dark);"></div></div>
+        </div>
+        <div class="card-row cols-2" style="margin-top:16px;">
+          <div><div class="med-meta">Email</div><div id="p-email" style="font-size:1.1rem;"></div></div>
+          <div><div class="med-meta">Member Since</div><div id="p-created" style="font-size:1.1rem;"></div></div>
+        </div>
+        <div class="card-row cols-2" style="margin-top:16px;">
+          <div><div class="med-meta">Notification Preference</div><div id="p-pref" style="font-size:1.1rem;"></div></div>
+          <div><div class="med-meta">Emergency Contact</div><div id="p-emergency" style="font-size:1.1rem;"></div></div>
+        </div>
+        <a class="btn btn-secondary" href="/settings.html" style="margin-top:20px;">Edit Notification Settings</a>
+      </div>
+
+      <div class="disclaimer">
+        This application is for medication organization and reminders and does not replace
+        professional medical advice. It does not diagnose conditions, change your doctor's
+        dosage, or generate new prescriptions.
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">AI Medicine Reminder — college project demo</footer>
+</div>
+<script src="/js/app.js"></script>
+<script>
+  (async function () {
+    const user = await requireAuth();
+    if (!user) return;
+    renderNavbar("/profile.html");
+    document.getElementById("p-name").textContent = user.name;
+    document.getElementById("p-phone").textContent = user.phone;
+    document.getElementById("p-email").textContent = user.email;
+    document.getElementById("p-created").textContent = (user.created_at || "").slice(0, 10);
+    document.getElementById("p-pref").textContent = (user.notification_preference || "").split(",").join(", ");
+    document.getElementById("p-emergency").textContent = user.emergency_contact_name
+      ? `${user.emergency_contact_name} (${user.emergency_contact_phone || "no number"})`
+      : "Not set";
+  })();
+</script>
+</body>
+</html>

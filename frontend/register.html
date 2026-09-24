@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register — AI Medicine Reminder</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="auth-shell">
+  <div class="card" style="max-width:560px; width:100%;">
+    <h1>Create your account</h1>
+    <p>Set this up once — your reminders will run in the background even when this page is closed.</p>
+    <div id="form-alert"></div>
+    <form id="register-form">
+      <div class="field">
+        <label for="name">Patient Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="card-row cols-2">
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required placeholder="9876543210">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" required minlength="6">
+      </div>
+
+      <fieldset>
+        <legend>Notification Preference</legend>
+        <p class="field-hint" style="margin-top:-6px; margin-bottom:12px;">
+          Choose one or more. Telegram is optional — skip it if you don't use Telegram.
+        </p>
+        <div class="checkbox-row"><input type="checkbox" id="pref-telegram" value="telegram"><label for="pref-telegram">Telegram</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="pref-sms" value="sms"><label for="pref-sms">SMS</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="pref-email" value="email"><label for="pref-email">Email</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="pref-call" value="call"><label for="pref-call">Automated Phone Call</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="pref-browser" value="browser" checked><label for="pref-browser">Browser Notification</label></div>
+      </fieldset>
+
+      <div class="field">
+        <label for="telegram_chat_id">Telegram Chat ID <span class="muted" style="font-weight:400;">(optional — skip if you don't have Telegram)</span></label>
+        <input type="text" id="telegram_chat_id" placeholder="e.g. 123456789">
+      </div>
+
+      <fieldset>
+        <legend>Emergency Contact <span class="muted" style="font-weight:400;">(optional)</span></legend>
+        <div class="card-row cols-2">
+          <div class="field">
+            <label for="em_name">Contact Name</label>
+            <input type="text" id="em_name">
+          </div>
+          <div class="field">
+            <label for="em_phone">Contact Number</label>
+            <input type="tel" id="em_phone">
+          </div>
+        </div>
+      </fieldset>
+
+      <button class="btn btn-primary btn-block btn-lg" type="submit">Create Account</button>
+    </form>
+    <p style="text-align:center; margin-top:16px;">Already have an account? <a href="/login.html">Log in</a></p>
+  </div>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

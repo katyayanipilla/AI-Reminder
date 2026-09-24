@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — AI Medicine Reminder</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="page-shell">
+  <nav class="navbar" id="navbar"></nav>
+  <main>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h1 id="greeting">Hello 👋</h1>
+          <p id="today-date" class="muted"></p>
+        </div>
+        <a class="btn btn-primary" href="/upload.html">+ Add Prescription</a>
+      </div>
+
+      <div class="card-row cols-4" id="stats-row">
+        <div class="card stat"><div class="num" id="stat-total">–</div><div class="label">Today's Medicines</div></div>
+        <div class="card stat"><div class="num" id="stat-taken">–</div><div class="label">Taken</div></div>
+        <div class="card stat"><div class="num" id="stat-pending">–</div><div class="label">Pending</div></div>
+        <div class="card stat"><div class="num" id="stat-missed">–</div><div class="label">Missed</div></div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <div class="section-head">
+          <h2>Adherence Today</h2>
+          <span class="badge badge-taken" id="adherence-badge">0%</span>
+        </div>
+        <div id="next-medicine"></div>
+      </div>
+
+      <div class="card">
+        <h2>Today's Medicines</h2>
+        <div id="todays-meds"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-head">
+          <h2>Notification Channels</h2>
+        </div>
+        <div class="chip-group" id="channels-row"></div>
+        <p class="field-hint" style="margin-top:10px;">Configure these in Settings → add API credentials to your <code>.env</code> file to enable more channels.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">AI Medicine Reminder — college project demo</footer>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

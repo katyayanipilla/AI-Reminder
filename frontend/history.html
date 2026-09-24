@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>History — AI Medicine Reminder</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="page-shell">
+  <nav class="navbar" id="navbar"></nav>
+  <main>
+    <div class="container">
+      <h1>Medicine History</h1>
+
+      <div class="card">
+        <div class="chip-group" id="date-filters">
+          <button class="chip active" data-range="today" type="button">Today</button>
+          <button class="chip" data-range="yesterday" type="button">Yesterday</button>
+          <button class="chip" data-range="7" type="button">Last 7 Days</button>
+          <button class="chip" data-range="30" type="button">Last 30 Days</button>
+          <button class="chip" data-range="all" type="button">All Time</button>
+        </div>
+        <div class="card-row cols-2" style="margin-top:16px;">
+          <div class="field">
+            <label for="status-filter">Status</label>
+            <select id="status-filter">
+              <option value="">All Statuses</option>
+              <option value="Taken">Taken</option>
+              <option value="Pending">Pending</option>
+              <option value="Not Taken">Not Taken</option>
+              <option value="Missed">Missed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="custom-date">Custom Date</label>
+            <input type="date" id="custom-date">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Medicine</th><th>Dosage</th><th>Scheduled</th><th>Taken</th><th>Status</th></tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
+        </div>
+        <div id="history-empty" style="display:none;" class="empty-state">No history records match these filters.</div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">AI Medicine Reminder — college project demo</footer>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/history.js"></script>
+</body>
+</html>
